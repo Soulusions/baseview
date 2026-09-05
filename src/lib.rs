@@ -31,6 +31,10 @@ pub(crate) use tracing::*;
 mod utils;
 pub(crate) mod wrappers;
 
+/// Enables process-wide initialization for standalone applications.
+///
+/// Call before creating any windows, only when the application owns the process.
+/// Do not call from a plugin.
 #[inline]
 pub unsafe fn assume_standalone_in_process() {
     platform::assume_standalone_in_process()
